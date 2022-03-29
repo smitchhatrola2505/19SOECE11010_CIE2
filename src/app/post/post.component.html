@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <th>UserId</th>
+        <th>Title</th>
+        <th>Completed</th>
+        <th>Id</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of myData  | paginate : {itemsPerPage:7,currentPage:p}">
+            <td>{{m.userId}}</td>
+            <td>{{m.title}}</td>
+            <td>{{m.completed}}</td>
+            <td>{{m.id}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(m)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</table>
